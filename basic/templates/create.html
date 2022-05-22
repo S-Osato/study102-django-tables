@@ -1,0 +1,45 @@
+{% extends 'sidemenu/base.html' %}
+{% block content %}
+<main>
+    <h1>キャラクター登録</h1>
+    <form id="main-form" class="form-inline" role="form" method="POST">
+      {% csrf_token %}
+      <div class="mt-2">
+          <div class='form-inline'>
+              <label class="mr-2">名前: </label>
+              <input class="form-control ml-2" name="name"></input>
+          </div>
+      </div>
+      <div class="mt-2">
+          <div class='form-inline'>
+              <label class="mr-2">性別: </label>
+              <select class="form-control ml-2" name="gender">
+                <option value="man">男</option>
+                <option value="woman">女</option>
+              </select>
+          </div>
+      </div>
+      <div class="mt-2">
+        <div class='form-inline'>
+            <label class="mr-2">特徴: </label>
+            <textarea class="form-control ml-2" name="feature"></textarea>
+        </div>
+      </div>
+      <div class="mt-2">
+        <div class='form-inline'>
+            <label class="mr-2">画像リンク: </label>
+            <input class="form-control ml-2" name="image_link"></input>
+        </div>
+      </div>
+      <div class="mt-2">
+        <div class='form-inline'>
+            <label class="mr-2">ページリンク: </label>
+            <input class="form-control ml-2" name="page_link"></input>
+        </div>
+      </div>
+      <div class="mt-2">
+        <button id="submit_btn" type="submit" class="btn btn-primary">登録</button>
+      </div>
+    </form>
+</main>
+{% endblock %}

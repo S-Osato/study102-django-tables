@@ -1,0 +1,21 @@
+{% extends 'sidemenu/base.html' %}
+{% block content %}
+{% load render_table from django_tables2 %}
+<main>
+    <h1>キャラクター一覧</h1>
+    <div class="container">
+        <form id="main-form" class="form-horizontal" role="form" method="GET">
+            {% csrf_token %}
+            <div class="form-inline mt-1 p-0">
+                <input name="name" class="form-control" placeholder="キャラクター名を指定">
+                <button  name="search" class="btn btn-primary ml-2">検索</button>
+            </div>
+                
+            <div class="control-label">キャラクター数：{{ record_count }}</div>
+            <div class="table table-hover table-header-checkbox-hidden syuppin-item-table sticky-table mt-2">
+                {% render_table table %}
+            </div>
+        </form>
+    </div>
+</main>
+{% endblock %}
